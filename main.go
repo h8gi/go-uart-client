@@ -45,7 +45,7 @@ func repl(s *serial.Port) error {
 			continue
 		}
 
-		n, err := s.Write([]byte(line)[:1])
+		n, err := s.Write([]byte(line))
 		if err != nil {
 			return err
 		}
