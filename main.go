@@ -10,11 +10,11 @@ import (
 )
 
 const (
-	COLOR_RED   = "\033[0;31m"
-	COLOR_GREEN = "\033[1;32m"
-	COLOR_BLUE  = "\033[1;34m"
+	ColorRed   = "\033[0;31m"
+	ColorGreen = "\033[1;32m"
+	ColorBlue  = "\033[1;34m"
 
-	COLOR_OFF = "\033[m"
+	ColorOff = "\033[m"
 )
 
 var CLI struct {
@@ -25,8 +25,8 @@ var CLI struct {
 
 func repl(s *serial.Port) error {
 	rl, err := readline.NewEx(&readline.Config{
-		Prompt:          fmt.Sprintf("%s>%s ", COLOR_GREEN, COLOR_OFF),
-		InterruptPrompt: fmt.Sprintf("\n%sinterrupt%s", COLOR_RED, COLOR_OFF),
+		Prompt:          fmt.Sprintf("%s>%s ", ColorGreen, ColorOff),
+		InterruptPrompt: fmt.Sprintf("\n%sinterrupt%s", ColorRed, ColorOff),
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -57,8 +57,6 @@ func repl(s *serial.Port) error {
 		}
 		fmt.Printf("%q\n", buf[:n])
 	}
-
-	return nil
 }
 
 func main() {
