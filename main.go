@@ -45,11 +45,11 @@ func repl(s *serial.Port) error {
 			continue
 		}
 
+		s.Flush()
 		n, err := s.Write([]byte(line))
 		if err != nil {
 			return err
 		}
-		fmt.Printf("  write %d byte\n", n)
 
 		n, err = s.Read(buf)
 		if err != nil {
